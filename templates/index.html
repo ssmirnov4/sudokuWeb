@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Судоку</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="difficulty-selector">
+            <label for="difficulty">Сложность:</label>
+            <select id="difficulty">
+                <option value="easy">Легкая</option>
+                <option value="medium" selected>Средняя</option>
+                <option value="hard">Сложная</option>
+            </select>
+        </div>
+        <div id="sudoku-grid"></div>
+        <div class="buttons">
+            <button id="check-btn">Проверить решение</button>
+            <button id="new-puzzle-btn">Новая игра</button>
+        </div>
+    </div>
+    <script src="./static/js/game.js"></script>
+</body>
+</html>
