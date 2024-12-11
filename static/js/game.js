@@ -1,5 +1,3 @@
-let originalPuzzle = null;
-
 function createGrid(puzzle) {
     const gridContainer = document.getElementById('sudoku-grid');
     gridContainer.innerHTML = '';
@@ -17,15 +15,15 @@ function createGrid(puzzle) {
                 input.type = 'number';
                 input.min = 1;
                 input.max = 9;
-                input.addEventListener('input', function(e) {
-                    if (e.target.value.length > 1) {
-                        e.target.value = e.target.value.slice(0, 1);
+                input.addEventListener('input', function() {
+                    if (this.value.length > 1) {
+                        this.value = e.target.value.slice(0, 1);
                     }
-                    if (parseInt(e.target.value) > 9) {
-                        e.target.value = 9;
+                    if (parseInt(this.value) > 9) {
+                        this.value = 9;
                     }
-                    if (parseInt(e.target.value) === 0){
-                        e.target.value = '';
+                    if (parseInt(this.value) === 0){
+                        this.value = '';
                     }
                 });
                 cell.appendChild(input);
@@ -62,9 +60,6 @@ function getNewPuzzle() {
     fetch(`/new-puzzle?difficulty=${difficulty}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            console.log("Received puzzle:", data.puzzle);
-            originalPuzzle = data.puzzle;
             createGrid(data.puzzle);
         });
 }
